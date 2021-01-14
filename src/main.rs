@@ -27,8 +27,6 @@ fn main() {
     
     // specs setup
     let (mut game_state, mut dispatcher) = default_state_and_dispatcher();
-
-
     
     canvas.set_draw_color(Color::RED);
     canvas.clear();
@@ -44,6 +42,7 @@ fn main() {
             sdl_event_resource.events = event_pump.poll_iter().collect();
         }
 
+        // dispatch systems
         dispatcher.dispatch(&game_state.world);
         
         // check exit resource if game should exit
